@@ -35,7 +35,6 @@ function createTasks() {
                     console.log('open page fail!');
                 } else { 
                 waitFor(function() {
-                        // Check in the page if a specific element is now visible
                         var rt = page.evaluate(function(selector) {
                             return document.querySelector(selector);
                         }, '.charts');
