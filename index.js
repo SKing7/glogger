@@ -19,7 +19,7 @@ function createTasks() {
         var pageAlias = v[1];
         var pageTitle = v[2];
         page.viewportSize = { width: 1280, height: 682 };
-        page.clipRect = { top: 341, left: 0, width: 1280, height: 682 };
+        page.clipRect = { top: 341, left: 0, width: 1265, height: 341 };
         page.settings = {
             javascriptEnabled: true,
             loadImages: true,
