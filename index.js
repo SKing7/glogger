@@ -18,17 +18,19 @@ function createTasks() {
         var name = v[0];
         var pageAlias = v[1];
         var pageTitle = v[2];
-        page.viewportSize = { width: 1280, height: 1024 };
-        page.clipRect = { top: 0, left: 0, width: 1280, height: 1024 };
+        page.viewportSize = { width: 1280, height: 682 };
+        page.clipRect = { top: 341, left: 0, width: 1280, height: 682 };
         page.settings = {
             javascriptEnabled: true,
             loadImages: true,
             encoding: "utf8",
             userAgent: 'Mozilla/5.0 (Linux; Android 4.4.4; en-us; Nexus 4 Build/JOP40D) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2307.2 Mobile Safari/537.36'
         };
-        startCapture('http://10.16.28.75:3000/?{"dataUrl":"' + pageAlias + '","charts":[{"type":"line","rounding":"off","title":"' + (pageTitle || pageAlias) + '","note":""}]}');
+        //"{"dataUrl":"/search/view/","charts":[{"type":"line","rounding":"off","title":""},{"type":"line","rounding":"off","title":"搜索结果列表页","note":"Timing Marks(with SSR)","series":[1]}]}"
+        startCapture('http://10.16.28.75:3000/?{"dataUrl":"' + pageAlias + '","charts":[{"type":"line","rounding":"off","title":"","note":""}, {"type":"line","rounding":"off","title":"' + pageTitle + '","note":"Timing Marks(with SSR)","series":[1]}]}');
 
         function startCapture(url) {
+            console.log('opening:', url);
             page.open(encodeURI(url), function (status) {
                 var data;
                 if (status === 'fail') {
