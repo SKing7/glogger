@@ -30,7 +30,7 @@ function createTasks() {
         startCapture('http://10.16.28.75:3000/?{"dataUrl":"' + pageAlias + '","charts":[{"type":"line","rounding":"off","title":"","note":""}, {"type":"line","rounding":"off","title":"' + pageTitle + '","note":"Timing Marks(with SSR)","series":[1]}]}');
 
         function startCapture(url) {
-            console.log('opening:', url);
+            console.log(new Date(), 'opening:', url);
             page.open(encodeURI(url), function (status) {
                 var data;
                 if (status === 'fail') {
