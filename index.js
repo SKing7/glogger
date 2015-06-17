@@ -1,11 +1,11 @@
 var webpage = require('webpage')
 var data = [
-    ['index_index', '/index/index/', '首页'], 
-    ['search_view', '/search/view/', '搜索列表页'], 
-    ['search_mapview', '/search/mapview/', '搜索图面页'], 
-    ['detail_index', '/detail/index/', 'POI详情页'], 
-    ['navigation_index', '/navigation/index/', '路线首页'], 
-    ['navigation_buslist', '/navigation/buslist/', '公交导航结果页'], 
+    ['index_index', '/index/index/', '首页', 2], 
+    ['search_view', '/search/view/', '搜索列表页', 1], 
+    ['search_mapview', '/search/mapview/', '搜索图面页', 2], 
+    ['detail_index', '/detail/index/', 'POI详情页', 1], 
+    ['navigation_index', '/navigation/index/', '路线首页', 2], 
+    ['navigation_buslist', '/navigation/buslist/', '公交导航结果页', 2], 
 ];
 
 createTasks();
@@ -18,6 +18,7 @@ function createTasks() {
         var name = v[0];
         var pageAlias = v[1];
         var pageTitle = v[2];
+        var series = v[3];
         page.viewportSize = { width: 1280, height: 682 };
         page.clipRect = { top: 341, left: 0, width: 1265, height: 341 };
         page.settings = {
@@ -26,8 +27,8 @@ function createTasks() {
             encoding: "utf8",
             userAgent: 'Mozilla/5.0 (Linux; Android 4.4.4; en-us; Nexus 4 Build/JOP40D) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2307.2 Mobile Safari/537.36'
         };
-        //"{"dataUrl":"/search/view/","charts":[{"type":"line","rounding":"off","title":""},{"type":"line","rounding":"off","title":"搜索结果列表页","note":"Timing Marks(with SSR)","series":[1]}]}"
-        startCapture('http://10.16.28.75:3000/?{"dataUrl":"' + pageAlias + '","charts":[{"type":"line","rounding":"off","title":"","note":""}, {"type":"line","rounding":"off","title":"' + pageTitle + '","note":"Timing Marks(with SSR)","series":[1]}]}');
+        startCapture('http://10.16.28.75:3000/?{"dataUrl":"' + pageAlias + '","charts":[{"type":"line","rounding":"off","title":"","note":""},'
+            + '{"type":"line","rounding":"off","title":"' + pageTitle + '","note":"Timing Marks","series":[' + (series ? series: 2) + ']}]}');
 
         function startCapture(url) {
             console.log(new Date(), 'opening:', url);
