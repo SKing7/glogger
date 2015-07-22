@@ -1,0 +1,22 @@
+{
+  "name": "glogger",
+  "version": "1.0.0",
+  "description": "针对性能趋势日志图表的截图task, 局限于M站项目 ##usage ```shell   phantomjs index.js ``` 图片目录：shots",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SKing7/glogger.git"
+  },
+  "author": "sking7",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SKing7/glogger/issues"
+  },
+  "homepage": "https://github.com/SKing7/glogger#readme",
+  "dependencies": {
+    "lodash": "^3.10.0"
+  }
+}
