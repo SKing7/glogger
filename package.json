@@ -18,6 +18,7 @@
   "homepage": "https://github.com/SKing7/glogger#readme",
   "dependencies": {
     "lodash": "^3.10.0",
+    "moment": "^2.10.6",
     "q": "^1.4.1"
   }
 }
